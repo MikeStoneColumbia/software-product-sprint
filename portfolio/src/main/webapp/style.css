@@ -7,3 +7,19 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#profilePic {
+
+    width: 20%;
+    height: auto
+
+}
+
+#name{
+
+    width:20%;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 1px;
+
+}
