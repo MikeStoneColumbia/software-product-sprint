@@ -35,7 +35,7 @@ body,html{
   overflow: hidden; /* makes sure the navbar doesn't overflow */
 }
 
-.navBar a {
+.navTab {
   float: left; /*move to the left */
   color: rgb(247, 51, 67); /*intial color before hovering */
   text-align: center; 
@@ -44,14 +44,9 @@ body,html{
   font-size: 17px; /* size*/
 }
 
-.navBar a:hover {
+.navTab:hover {
   background-color: #ddd; /* color of background when hovered */
   color: black; /* color of text when hovered */
-}
-
-.navBar a.active {
-  background-color: rgb(1, 153, 1); /*tab we are currently on*/
-  color: white; /*color of the text*/
 }
 
 .navBar .icon{

@@ -32,7 +32,24 @@ function responseNavBar(){
 function switchTab(tabName,element){ // the idea here is to make all other categories disapear besides the one just clicked
 
     var navContent = document.getElementsByClassName("navContent") // get the navContent divs
+    var navTab = document.getElementsByClassName("navTab");
+
+    for(var i = 0; i < navTab.length; i++){
+        navTab[i].style.color = "rgb(247, 51, 67)";
+        navTab[i].style.backgroundColor = "black";
+        
+        
+    }    
+
     for(var i = 0; i < navContent.length; i++) // make them all disapear
         navContent[i].style.display = "none";
+    
 
+
+    document.getElementById(tabName).style.display = "block"; // display the appropiate tab info
+    element.style.backgroundColor = "rgb(1, 153, 1)" // set the active tab to green
+    element.style.color = "white"
+    
 }
+
+document.getElementsByClassName("active")[0].click();
