@@ -17,12 +17,12 @@
 
     <div class = "navBar" id = "myNavBar">
 
-        <a class = "navTab" class="active" href="#aboutMe">About Me</a>
-        <a class = "navTab" href="#coursework">Coursework <i class="fa fa-graduation-cap"></i></a>
-        <a class = "navTab" href="#projects">Projects <i class="fa fa-code"></i></a>
-        <a class = "navTab" href="#outsideExperience">Outside Experience <i class="fa fa-share-square"></i></a>
-        <a class = "navTab" href="#contats">Contacts <i class="fa fa-address-book"></i></a>
-        <a class = "navTab" href="#aboutSite">About Site <i class="fa fa-info"></i></a>
+        <a class = "navTab" onclick="switchTab('About Me', this)" class="active" href="#aboutMe">About Me</a>
+        <a class = "navTab" onclick="switchTab('Coursework', this)" href="#coursework">Coursework <i class="fa fa-graduation-cap"></i></a>
+        <a class = "navTab" onclick="switchTab('Projects', this)" href="#projects">Projects <i class="fa fa-code"></i></a>
+        <a class = "navTab" onclick="switchTab('Outside Experience', this)" href="#outsideExperience">Outside Experience <i class="fa fa-share-square"></i></a>
+        <a class = "navTab" onclick="switchTab('Contacts', this)" href="#contats">Contacts <i class="fa fa-address-book"></i></a>
+        <a class = "navTab" onclick="switchTab('Aboute Site', this)" href="#aboutSite">About Site <i class="fa fa-info"></i></a>
 		<a href="javascript:void(0);" class="icon" onclick="responseNavBar()">
 			<i class="fa fa-bars"></i>
 		</a>	<!-- javascript:void(0) ignores the link being clicked -->
@@ -81,7 +81,7 @@
 
         </div>
 
-        <div class="aboutMePiece" id = "goals">
+        <div class="aboutMePiece" id = "hobbies">
 
             <h1>Hobbies</h1>
 
@@ -100,7 +100,19 @@
 
      <div id ="coursework" class = "navContent">
 
-        
+        <div class="courseworkPiece" id="OS">
+
+            <h1>Operating Systems</h1>
+
+            <p>Class attended Spring 2020. Easily one of the hardest classes I have ever taken. The class focused on
+                hacking the Debian Linux OS. In order to do that we had to learn in depth how diffferent parts of the OS
+                worked together. We learned about schedulers, task-structs, synchronis and asynchronis programming,
+                and implementing system calls just to name a few. The class had a "self exploration mind set", where we learned
+                about concepts and theories and class and then had to dive into linux documentation on our own to find out
+                "how to build and implement another scheduler"? Or how to add another file-system into our OS?
+            </p>
+
+        </div>
 
      </div>
 

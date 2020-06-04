@@ -29,3 +29,10 @@ function responseNavBar(){
 
 }
 
+function switchTab(tabName,element){ // the idea here is to make all other categories disapear besides the one just clicked
+
+    var navContent = document.getElementsByClassName("navContent") // get the navContent divs
+    for(var i = 0; i < navContent.length; i++) // make them all disapear
+        navContent[i].style.display = "none";
+
+}

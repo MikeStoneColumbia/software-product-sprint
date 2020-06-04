@@ -4,9 +4,9 @@
   width: 650px;
 }
 
-body{
+body,html{
 
-    background-color:rgb(163, 161, 161)
+    background-color:rgb(163, 161, 161);
 
 }
 
