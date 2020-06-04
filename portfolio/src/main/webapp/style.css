@@ -53,3 +53,36 @@ body{
   background-color: rgb(1, 153, 1); /*tab we are currently on*/
   color: white; /*color of the text*/
 }
+
+.navBar .icon{
+	display: none;
+}
+
+@media screen and (max-width: 600px){
+
+	.navBar a:not(:first-child){display:none;}
+	.navBar a.icon{
+		float:right;
+		display:block;
+	}
+
+}
+
+@media screen and (max-width:600px){
+
+	.navBar.responsive{position:relative;}
+	.navBar.responsive a.icon{
+		position:absolute;
+		right:0;
+		top:0;
+	}
+
+	.navBar.responsive a{
+
+		float:none;
+		display:block;
+		text-align:left;
+	}
+
+}
+

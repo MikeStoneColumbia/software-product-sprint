@@ -12,17 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['LETS GET READY TO RUMBUUUUULE!!', 'The heart is the strongest muscle', 'My favorite color is spring', 'I am not your enemy. I am THE enemy'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+function responseNavBar(){
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+	var navBar = document.getElementById("myNavBar")
+	
+	console.log(navBar.className)
+	console.log(navBar.className === "navBar")
+	if(navBar.className === "navBar"){
+
+		navBar.className += " responsive"
+		console.log("made it into responsive")
+
+	}else
+		navBar.className = "navBar"
+
 }
+

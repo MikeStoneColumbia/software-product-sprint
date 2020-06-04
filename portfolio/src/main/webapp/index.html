@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Michael Stone</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"> 
     <script src="script.js"></script>
   </head>
   <body>
@@ -14,15 +15,17 @@
 
     </div>
 
-    <div class = "navBar">
+    <div class = "navBar" id = "myNavBar">
 
-        
         <a class="active" href="#aboutMe">About Me</a>
         <a href="#coursework">Coursework</a>
         <a href="#projects">Projects</a>
         <a href="#outsideExperience">Outside Experience</a>
         <a href="#contats">Contacts</a>
         <a href="#aboutSite">About Site</a>
+		<a href="javascript:void(0);" class="icon" onclick="responseNavBar()">
+			<i class="fa fa-bars"></i>
+		</a>	<!-- javascript:void(0) ignores the link being clicked -->
 
     </div>
   </body>
