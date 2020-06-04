@@ -100,6 +100,49 @@
 
      <div id ="coursework" class = "navContent">
 
+        <div class="courseworkPiece" id ="arch">
+
+            <h1>Computer Architecture</h1>
+
+            <p>Attending class for Fall 2020. One of the most difficult classes in the CE undergrad course
+
+                Class will delve into topics such as memory hierarchy design. Instruction-level and thread-level parallelism. 
+                Data-level parallelism and graphics processing units. Multiprocessors. Cache coherence. Interconnection networks. 
+                Multi-core processors and systems-on-chip. Platform architectures for embedded, mobile, and cloud computing.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" class="logic">
+
+            <h1>Advanced Logic Design</h1>
+
+            <p>Attending Class for Fall 2020. Another one of the big bulls in the CE course list.
+                Some of the topics covered include model, simulating, synthesizing and optimizing large and complex subsystems
+                It also seamlessly covers some of the practical industrial aspects of modern design, including use of hardware 
+                description languages (e.g.  VHDL) for structured modelling and simulation. Other topics include: controller 
+                synthesis and optimization, iterative circuits, high-speed combinational arithmetic circuits,fault-tolerance and 
+                soft error mitigation, power optimization strategies, asynchronous design, FPGA struc-tures, and floating-point 
+                arithmetic. Will also gain hands-on experience in designing and simulating a number of real digital systems using several CAD tools.
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" class="circuitA">
+
+            <h1>Circuit Analysis</h1>
+
+            <p>Attending Class for Fall 2020. This is actually an electrical engineering course.
+
+                This course focuses on  analysis of linear circuits and their applications. Formulation of circuit equations. 
+                Network theorems. Transient response of first and second order circuits. Sinusoidal steady state analysis. 
+                Frequency response of linear circuits. Poles and zeros. Bode plots. Two-port networks.
+
+            </p>
+
+        </div>
+
         <div class="courseworkPiece" id="OS">
 
             <h1>Operating Systems</h1>
@@ -112,19 +155,137 @@
                 "how to build and implement another scheduler"? Or how to add another file-system into our OS?
             </p>
 
+            <p>projects worth bragging about (C): 
+                Building a multi-server that can handle HTTP protocol.
+                Building an OS scheduler called freezer.
+                Implementing an OS wide system call called fridge which was basically a gloabl hash table
+                Implementing a custom file-system
+                
+            </p>
+
         </div>
+
+        <div class="courseworkPiece" id="networks">
+
+            <h1>Computer Networks</h1>
+
+            <p>Class attneded Spring 2020. A class that talked about the different layers of the internet and about
+                the differen algorithms and protocols that exist between the application and data link layers.
+                Discussing things such as the TCP protocol for handling packet loss or how datagrams are built in the transport
+                layer and passed down to the network layer.
+            </p>
+
+            <p> projects worth bragging about (Python):
+
+                Bulding a cache server that handled HTTP requests. After every query the results were cached in local directory for quick future access
+                Built a traceroute algorithm that returned RTT value for each router hit from local host to destination server.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="ap">
+            
+            <h1>Advanced Programming</h1>
+
+            <p>Class attended Fall 2019. Learned about advanced algorithms and low level implications of Stack and Heap.
+                Learned the ins and outs of the C langauge, building everything from back end databases to full on servers
+                from scratch using C.
+            </p>
+
+            <p>projects worth bragging about (C)
+
+                Built a server that was able to handle client HTTP requests. Client would request a website and server 
+                would return site with expected HTTP response. Server also connected to back end database that 
+                can display information using html format.
+
+                Recreated the weget functionality in terminal to allow users to download site and file contents.
+                This was done by using a TCP socket connection and understanding Standard I/O in C and UNIX enviorments.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="fundies">
+
+            <h1>Fundamentals of Computer Systems</h1>
+
+            <p>Learned about the world where electricity meets code. Specifically learned about electrical components that
+                handle logic, like logic gates, decoders, MUXs, adders, shifters, and more. Discovered new ways to combine
+                they invidivual components to create more complicated componnets in a computer. Learned about MIPS programming
+                and how the pipe architecture works. Specifically how does adding new components or new commands affect the
+                architecture and how to apply patches to fix it.
+            </p>
+
+            <p>Projects worth bragging about (MIPS/Circuit Design)
+
+                Built a 64-bit memory chip using two 32-bit chips. The chip was able to switch between the 64-bit and 32-bit
+                mode depending on userinput
+
+            </p>
+
+            </div>
 
      </div>
 
      <div id ="projects" class = "navContent">
 
-        
+        <div class="projectsPiece" id="movie">
+
+            <h1>Movie Stone</h1>
+
+            <p>An andorid application that displays movies that are currently playing in theaters. It utilizes the 
+                IMDB API to retrieve data. Data is processed and eventally displayed to the user using a variety of complex
+                recycler views. Addtionally, currently implementing user sign in feature using HerokuAPp so that users can save a personal
+                wish list.
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="insta">
+
+            <h1>Insta-Stone</h1>
+
+            <p>An andorid application that is a re-make of instagram. Allows users to signup and create accounts, as well as
+                take images and create posts. Posts can be viewed by anyone regardless of who posted it.
+
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="shop">
+
+            <h1>Shop-Bot</h1>
+
+            <p>A bot built using the sellinium library that allows a user to select items they would want to purchase
+                from the Supreme website, and then retrieves, checksout, and purchases products in a few seconds. The
+                purpose of this bot was to give people the chance to buy products that would normally get sold out in minutes
+                when they are first released.
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="multi">
+
+            <h1>Multi-server</h1>
+
+            <p>Built a server that can handle multiple user requests at once by using multi-threading. Server can handle
+                user requests by following standard HTTP protocol. Server also has the capability to connect to a back-end
+                database and display data to user by padding data with html tags. Furthermore server is robust and capable of handling
+                user timeout or back-end database crashing without compromising itself.
+            </p>
+
+        </div>
 
      </div>
 
      <div id ="outside" class = "navContent">
 
+        <div class="outsidePiece" id="codeNext">
         
+            
+
+        </div>
 
      </div>
 

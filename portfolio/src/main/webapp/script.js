@@ -29,6 +29,8 @@ function responseNavBar(){
 
 }
 
+//TODO: Find out why the hover property disapears and fix it
+
 function switchTab(tabName,element){ // the idea here is to make all other categories disapear besides the one just clicked
 
     var navContent = document.getElementsByClassName("navContent") // get the navContent divs
