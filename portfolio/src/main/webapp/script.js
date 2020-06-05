@@ -54,6 +54,10 @@ function switchTab(tabName,element){ // the idea here is to make all other categ
     
 }
 
+function start(){
 
+    document.getElementById("active").click();
+
+}
    
 
