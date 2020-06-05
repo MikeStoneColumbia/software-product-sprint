@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="style.css"> 
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="switchTab('aboutMe',document.getElementsByClassName('active')[0])"">
     <div id="header">
       
-      <img id ="profilePic" src="images/IMG_7043.JPG" height="400px" width="400px">
+      <img id="profilePic" src="images/IMG_7043.JPG" height="400px" width="400px">
       <h1 id = "name">Michael Stone</h1>
 
     </div>
 
     <div class = "navBar" id = "myNavBar">
 
-        <a class = "navTab" onclick="switchTab('aboutMe', this)" class="active" href="#aboutMe">About Me</a>
+        <a class = "navTab" onclick="switchTab('aboutMe', this)"  class="active" href="#aboutMe">About Me</a>
         <a class = "navTab" onclick="switchTab('coursework', this)" href="#coursework">Coursework <i class="fa fa-graduation-cap"></i></a>
         <a class = "navTab" onclick="switchTab('projects', this)" href="#projects">Projects <i class="fa fa-code"></i></a>
         <a class = "navTab" onclick="switchTab('outside', this)" href="#outsideExperience">Outside Experience <i class="fa fa-share-square"></i></a>
