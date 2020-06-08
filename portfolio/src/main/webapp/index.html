@@ -2,17 +2,342 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Michael Stone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"> 
     <script src="script.js"></script>
   </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+  <body onload="start()">
+    <div id="header">
+      
+      <img id="profilePic" src="images/portfolioPic.jpg"  height="400px" width="400px">
+      <h1 id = "name">Michael Stone</h1>
+
     </div>
+
+    <div class = "navBar" id = "myNavBar">
+
+        <a class = "navTab" onclick="switchTab('aboutMe', this)"  id="active" href="#aboutMe">About Me</a>
+        <a class = "navTab" onclick="switchTab('coursework', this)" href="#coursework">Coursework <i class="fa fa-graduation-cap"></i></a>
+        <a class = "navTab" onclick="switchTab('projects', this)" href="#projects">Projects <i class="fa fa-code"></i></a>
+        <a class = "navTab" onclick="switchTab('outside', this)" href="#outsideExperience">Outside Experience <i class="fa fa-share-square"></i></a>
+        <a class = "navTab" onclick="switchTab('contacts', this)" href="#contacts">Contacts <i class="fa fa-address-book"></i></a>
+        <a class = "navTab" onclick="switchTab('aboutSite', this)" href="#aboutSite">About Site <i class="fa fa-info"></i></a>
+		<a href="javascript:void(0);" class="icon" onclick="responseNavBar()">
+			<i class="fa fa-bars"></i>
+		</a>	<!-- javascript:void(0) ignores the link being clicked -->
+
+    </div>
+
+    <div id ="aboutMe" class = "navContent">
+
+        <div class ="aboutMePiece" id="whoAmI">
+        
+            <h1>Getting to know me.</h1>
+            <p>My name is Michael Stone and I am a first generation college student. I am currently pursuing a Bachelor's in 
+            Computer Engineering at Columbia Univserity. My curiosity tends to be my driving force in my day to day life, and
+            without it I would find myself very bored.
+            </p>
+
+        </div>
+
+        <div class="aboutMePiece" id="studying">
+
+            <h1>My field of study</h1>
+            <p>Those who know me know I love to tinker with things. I just have a natural urge to take things apart and put them
+                back together. For better or for worse, at times I even try "upgrading" the items I take apart which
+                either works.... or... ends up breaking said item... Regradless there is no better field for me than engineering.
+                I am an aspiring computer engineer. My major tends to get mixed up with computer science a lot but I assure you
+                they are different majors. In computer engineering, I learn everything a computer scientist does; data structures,
+                advanced algorithms, networks, AI, you name it. The key difference being computer engineers also learn the 
+                electrical engineering that comes with a computer. Now you are wondering "how do they learn everything a computer
+                science person does with electrical engineering"? The answer is quite simple actually. We basically stuff our
+                schedules to the brim. Me in particular I am very interested in systems engineering. Systems engineering is the
+                magical world where hardware and software come together to make amazing things happen. Basically, the world
+                where electricity meets code. If all goes according to plan I would like to one day pursue a masters degress
+                in a related field in systems engineering.
+            </p>
+
+        </div>
+
+        <div class="aboutMePiece" id="goals">
+        
+            <h1>Dreams and aspirations</h1>
+            <p>Depending on the context I have a variety of goals that I hope to reach at some point in my life.
+                Some goals I have set since I was a young child and others have been set relativly recent. I believe that
+                "goals" are a continous list you never stop adding to, they are essentially like checkpoints in your life
+                to access how far you made it. Regardless one of my most important and personal goals comes from my childhood.
+                The goal was "I want to make it". Now, I admit this sounds a little cliched, ofcourse, everyone wants to make it.
+                For me it is a little bit more than that. I have went through a lot since I was a young child. To put it in
+                sweet and simple terms, I never really got to experience any part of my child hood and most of my teen years.
+                I always felt like I was always overcoming one wave of problems just to be greated with an even bigger one.
+                I saw many people succumb to their enviornments or to negative influences and I more than anything wanted to 
+                make it. A dream that I set when I probably was in elementary school is soon going to be realized in a year
+                when I finally graduate. As for some of my other goals, I want to work at a space company because ever
+                since I was a child space had always captivated me. I also would love to be a mentor for those who come from 
+                less fortunate backgrounds as I have and hopefully inspire others to keep pushing to become something greater
+                than their past.
+            </p>
+
+        </div>
+
+        <div class="aboutMePiece" id = "hobbies">
+
+            <h1>Hobbies</h1>
+
+            <p>I am simple guy. With Simple Taste. I enjoy gaming, as a matter of fact I am used to be a hardcore gamer
+                until I had to be responsible and stuff. I like being active and working out. This can include anything
+                from pumping iron to going on a hike. I love spending time on YouTube and Twitch, it is actually my go to
+                activity when I am going into lazy mode. Being a mentor and teaching is fun, espically when I am teaching things
+                I personally find interesting. Working on projects is also something I spend a lot of time on. If it is something
+                I enjoy building then I will easily spend weeks doing it non-stop. This sort of behavior has at times labeled me
+                as a workaholic.
+            </p>
+
+        </div>
+
+     </div>
+
+     <div id ="coursework" class = "navContent">
+
+        <div class="courseworkPiece" id ="arch">
+
+            <h1>Computer Architecture</h1>
+
+            <p>Attending class for Fall 2020. One of the most difficult classes in the CE undergrad course
+
+                Class will delve into topics such as memory hierarchy design. Instruction-level and thread-level parallelism. 
+                Data-level parallelism and graphics processing units. Multiprocessors. Cache coherence. Interconnection networks. 
+                Multi-core processors and systems-on-chip. Platform architectures for embedded, mobile, and cloud computing.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" class="logic">
+
+            <h1>Advanced Logic Design</h1>
+
+            <p>Attending Class for Fall 2020. Another one of the big bulls in the CE course list.
+                Some of the topics covered include model, simulating, synthesizing and optimizing large and complex subsystems
+                It also seamlessly covers some of the practical industrial aspects of modern design, including use of hardware 
+                description languages (e.g.  VHDL) for structured modelling and simulation. Other topics include: controller 
+                synthesis and optimization, iterative circuits, high-speed combinational arithmetic circuits,fault-tolerance and 
+                soft error mitigation, power optimization strategies, asynchronous design, FPGA struc-tures, and floating-point 
+                arithmetic. Will also gain hands-on experience in designing and simulating a number of real digital systems using several CAD tools.
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" class="circuitA">
+
+            <h1>Circuit Analysis</h1>
+
+            <p>Attending Class for Fall 2020. This is actually an electrical engineering course.
+
+                This course focuses on  analysis of linear circuits and their applications. Formulation of circuit equations. 
+                Network theorems. Transient response of first and second order circuits. Sinusoidal steady state analysis. 
+                Frequency response of linear circuits. Poles and zeros. Bode plots. Two-port networks.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="OS">
+
+            <h1>Operating Systems</h1>
+
+            <p>Class attended Spring 2020. Easily one of the hardest classes I have ever taken. The class focused on
+                hacking the Debian Linux OS. In order to do that we had to learn in depth how diffferent parts of the OS
+                worked together. We learned about schedulers, task-structs, synchronis and asynchronis programming,
+                and implementing system calls just to name a few. The class had a "self exploration mind set", where we learned
+                about concepts and theories and class and then had to dive into linux documentation on our own to find out
+                "how to build and implement another scheduler"? Or how to add another file-system into our OS?
+            </p>
+
+            <p>projects worth bragging about (C): 
+                Building a multi-server that can handle HTTP protocol.
+                Building an OS scheduler called freezer.
+                Implementing an OS wide system call called fridge which was basically a gloabl hash table
+                Implementing a custom file-system
+                
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="networks">
+
+            <h1>Computer Networks</h1>
+
+            <p>Class attneded Spring 2020. A class that talked about the different layers of the internet and about
+                the differen algorithms and protocols that exist between the application and data link layers.
+                Discussing things such as the TCP protocol for handling packet loss or how datagrams are built in the transport
+                layer and passed down to the network layer.
+            </p>
+
+            <p> projects worth bragging about (Python):
+
+                Bulding a cache server that handled HTTP requests. After every query the results were cached in local directory for quick future access
+                Built a traceroute algorithm that returned RTT value for each router hit from local host to destination server.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="ap">
+            
+            <h1>Advanced Programming</h1>
+
+            <p>Class attended Fall 2019. Learned about advanced algorithms and low level implications of Stack and Heap.
+                Learned the ins and outs of the C langauge, building everything from back end databases to full on servers
+                from scratch using C.
+            </p>
+
+            <p>projects worth bragging about (C)
+
+                Built a server that was able to handle client HTTP requests. Client would request a website and server 
+                would return site with expected HTTP response. Server also connected to back end database that 
+                can display information using html format.
+
+                Recreated the weget functionality in terminal to allow users to download site and file contents.
+                This was done by using a TCP socket connection and understanding Standard I/O in C and UNIX enviorments.
+
+            </p>
+
+        </div>
+
+        <div class="courseworkPiece" id="fundies">
+
+            <h1>Fundamentals of Computer Systems</h1>
+
+            <p>Learned about the world where electricity meets code. Specifically learned about electrical components that
+                handle logic, like logic gates, decoders, MUXs, adders, shifters, and more. Discovered new ways to combine
+                they invidivual components to create more complicated componnets in a computer. Learned about MIPS programming
+                and how the pipe architecture works. Specifically how does adding new components or new commands affect the
+                architecture and how to apply patches to fix it.
+            </p>
+
+            <p>Projects worth bragging about (MIPS/Circuit Design)
+
+                Built a 64-bit memory chip using two 32-bit chips. The chip was able to switch between the 64-bit and 32-bit
+                mode depending on userinput
+
+            </p>
+
+            </div>
+
+     </div>
+
+     <div id ="projects" class = "navContent">
+
+        <div class="projectsPiece" id="movie">
+
+            <h1>Movie Stone</h1>
+
+            <p>An andorid application that displays movies that are currently playing in theaters. It utilizes the 
+                IMDB API to retrieve data. Data is processed and eventally displayed to the user using a variety of complex
+                recycler views. Addtionally, currently implementing user sign in feature using HerokuAPp so that users can save a personal
+                wish list.
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="insta">
+
+            <h1>Insta-Stone</h1>
+
+            <p>An andorid application that is a re-make of instagram. Allows users to signup and create accounts, as well as
+                take images and create posts. Posts can be viewed by anyone regardless of who posted it.
+
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="shop">
+
+            <h1>Shop-Bot</h1>
+
+            <p>A bot built using the sellinium library that allows a user to select items they would want to purchase
+                from the Supreme website, and then retrieves, checksout, and purchases products in a few seconds. The
+                purpose of this bot was to give people the chance to buy products that would normally get sold out in minutes
+                when they are first released.
+            </p>
+
+        </div>
+
+        <div class="projectsPiece" id="multi">
+
+            <h1>Multi-server</h1>
+
+            <p>Built a server that can handle multiple user requests at once by using multi-threading. Server can handle
+                user requests by following standard HTTP protocol. Server also has the capability to connect to a back-end
+                database and display data to user by padding data with html tags. Furthermore server is robust and capable of handling
+                user timeout or back-end database crashing without compromising itself.
+            </p>
+
+        </div>
+
+     </div>
+
+     <div id ="outside" class = "navContent">
+
+        <div class="outsidePiece" id="codeNext">
+        
+            <h1>Code Next</h1>
+
+            <p>A program that is geared to high school students. The goal of the program is to help bridge the 
+                socioeconomic gap in the tech industry. Students come from the local community and are educated in topics
+                such as community awareness, as well as web development, and android app development.
+            </p>
+
+        </div>
+
+        <div class="outsidePiece" id="mechanics">
+
+            <h1>Biomechanics Laboratory Research</h1>
+            <p>Participated in reaseach at a Columbia University bio-mechanics laboratory. Self taught myself labview-C
+                and had to revamp legacy code for various machines in laboratory. Later one designed application to help
+                productivity in the laboratory by keeping track of experiment procedures and steps.
+            </p>
+
+        </div>
+
+        <div class="outsidePiece" id="electronics">
+
+            <h1>Bioelectronics Laboratory Research</h1>
+
+            <p>Participated in research at a Columbia University bio-electronics laboratory. Used Python to develop a UI
+                for researchers to monotor a colony of bacteria inside an incubator. Furthermore, I had to expand on their
+                camera system from a one camera system, to a dual-camera system by using multi-threading. Camera system
+                is capable of livestreaming footage to researchers so they can monitor the bacteria from home, and in addition
+                the system would take a high resolution image and save it to some pre-set folder location every few hours.
+            </p>
+
+         </div>   
+
+     </div>
+
+     <div id ="contacts" class = "navContent">
+
+         <div class="contactsPieces" id="personalInfo">
+
+             <h1>Email and Phone</h1>
+
+             <p>ms5512@columbia.edu<br>
+                michael.stone0320@gmail.com<br>
+                929-272-9121<br>
+                *resume link*
+                </p>
+
+         </div>
+
+     </div>
+
+     <div id ="aboutSite" class = "navContent">
+
+        
+
+     </div>
+
   </body>
 </html>

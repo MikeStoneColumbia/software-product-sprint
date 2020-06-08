@@ -4,6 +4,80 @@
   width: 650px;
 }
 
+body,html{
+
+    background-color:rgb(163, 161, 161);
+
+}
+
 #greeting-container {
   margin-top: 20px;
 }
+
+#profilePic {
+
+    width: 20%;
+    height: auto
+
+}
+
+#name{
+
+    width:20%;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 1px;
+
+}
+
+.navBar {
+  background-color: black; /* Makes the nav bar black */
+  overflow: hidden; /* makes sure the navbar doesn't overflow */
+}
+
+.navTab {
+  float: left; /*move to the left */
+  color: rgb(247, 51, 67); /*intial color before hovering */
+  text-align: center; 
+  padding: 14px 16px;
+  text-decoration: none; /*removes the underline*/
+  font-size: 17px; /* size*/
+}
+
+.navTab:hover {
+  background-color: rgb(221,221,221); /* color of background when hovered */
+  color: black; /* color of text when hovered */
+}
+
+.navBar .icon{
+	display: none;
+}
+
+@media screen and (max-width: 600px){
+
+	.navBar a:not(:first-child){display:none;}
+	.navBar a.icon{
+		float:right;
+		display:block;
+	}
+
+}
+
+@media screen and (max-width:600px){
+
+	.navBar.responsive{position:relative;}
+	.navBar.responsive a.icon{
+		position:absolute;
+		right:0;
+		top:0;
+	}
+
+	.navBar.responsive a{
+
+		float:none;
+		display:block;
+		text-align:left;
+	}
+
+}
+
