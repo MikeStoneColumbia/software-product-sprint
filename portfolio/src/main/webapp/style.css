@@ -45,7 +45,7 @@ body,html{
 }
 
 .navTab:hover {
-  background-color: #ddd; /* color of background when hovered */
+  background-color: rgb(221,221,221); /* color of background when hovered */
   color: black; /* color of text when hovered */
 }
 
