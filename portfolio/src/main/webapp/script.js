@@ -15,9 +15,16 @@
 
 function getData(){
   
-  fetch('/data').then(response => response.text()).then(data => {
+  fetch('/data')
+  .then(response => response.json())
+  .then(data => {
     
-    document.getElementById("message").innerHTML += data
+    data.forEach(dataum => {
+      
+      document.getElementById("message").innerHTML += `<h3>${dataum.name}</h3>`
+      document.getElementById("message").innerHTML += `<p>${dataum.msg}</p>`
+      
+    })
     
   })
   
