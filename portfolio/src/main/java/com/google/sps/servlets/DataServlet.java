@@ -15,24 +15,32 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
+import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    ArrayList<String> messages;
+    List<String> messages = new LinkedList<String>();
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+      String message = getParameter(request,"text-input","");
+      toJson(message);
+
+      response.setContentType("application/json");
+     response.getWriter().println(messages.toString());
+
+  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-    messages  = new ArrayList<String>();
-    
-    generateMessages();
     //response.setContentType("text/html;");
     response.setContentType("application/json");
     //response.getWriter().println("<h1>Hello Michael Stone</h1>");
@@ -40,11 +48,22 @@ public class DataServlet extends HttpServlet {
   }
 
 
-  private void generateMessages(){
+  private void toJson(String message){
 
-      messages.add("{ \"name\": \"Michael Stone\", \"msg\": \"Does this work?\"}");
-      messages.add("{\"name\": \"Tony Stone\", \"msg\": \"Seems like it.\"}");
-      messages.add("{\"name\": \"David Stone\", \"msg\": \"Yo bro, can you buy me a basketball?\"}");
+      if(messages.isEmpty())
+        messages.add("{ \"msg\": \""+message+"\"}");
+    
+      else
+        messages.add("{ \"msg\": \""+message+"\"}");
+      
+  }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 
 }
