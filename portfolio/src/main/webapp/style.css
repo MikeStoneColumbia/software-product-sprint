@@ -10,6 +10,13 @@ body,html{
 
 }
 
+button{
+  
+  height: 50px;
+  width:60px;
+  
+}
+
 #greeting-container {
   margin-top: 20px;
 }

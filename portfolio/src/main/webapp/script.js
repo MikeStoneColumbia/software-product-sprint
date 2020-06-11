@@ -13,6 +13,16 @@
 // limitations under the License.
 
 
+function getData(){
+  
+  fetch('/data').then(response => response.text()).then(data => {
+    
+    document.getElementById("message").innerHTML += data
+    
+  })
+  
+}
+
 function responseNavBar(){
 
 	var navBar = document.getElementById("myNavBar")
