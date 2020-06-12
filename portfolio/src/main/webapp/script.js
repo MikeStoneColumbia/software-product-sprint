@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-function getData(){
+function displayMessages(){
   
   fetch('/data')
   .then(response => response.json())
@@ -21,9 +21,8 @@ function getData(){
     
     data.forEach(dataum => {
       
-      document.getElementById("message").innerHTML += `<h3>${dataum.name}</h3>`
-      document.getElementById("message").innerHTML += `<p>${dataum.msg}</p>`
-      
+      document.getElementById("userMessages").innerHTML += `<p><strong> A user commented:</strong> ${dataum.msg} </p>`
+      console.log(`Completed displaying: ${dataum.msg}`)
     })
     
   })
@@ -74,6 +73,7 @@ function switchTab(tabName,element){ // the idea here is to make all other categ
 function start(){
 
     document.getElementById("active").click();
+    displayMessages()
 
 }
    

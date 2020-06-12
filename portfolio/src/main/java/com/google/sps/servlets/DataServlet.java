@@ -32,10 +32,8 @@ public class DataServlet extends HttpServlet {
 
       String message = getParameter(request,"text-input","");
       toJson(message);
-
-      response.setContentType("application/json");
-     response.getWriter().println(messages.toString());
-
+      response.setContentType("text/html");
+      response.getWriter().println("<h1>Thank you for contributing your message. Go back to the site to see it.</h1>");
   }
 
   @Override
