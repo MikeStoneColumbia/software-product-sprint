@@ -58,13 +58,10 @@ public class DataServlet extends HttpServlet {
 
         String message = (String)entity.getProperty("msg");
         toJson(message);
-        System.out.println("am I in the loop?");
-        //this isnt printing out. Means we aren't entering loop
-        //means results is empty
+     
 
     }
 
-    System.out.println("I have exited the loop");
     //response.setContentType("text/html;");
     response.setContentType("application/json");
     //response.getWriter().println("<h1>Hello Michael Stone</h1>");

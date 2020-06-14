@@ -15,7 +15,6 @@
 
 function displayMessages(){
   
-  console.log("currently in display messages")
 
   fetch('/data')
   .then(response => response.json())
@@ -76,7 +75,6 @@ function start(){
 
     document.getElementById("active").click();
     displayMessages()
-    console.log("Currently in start")
 
 }
    
