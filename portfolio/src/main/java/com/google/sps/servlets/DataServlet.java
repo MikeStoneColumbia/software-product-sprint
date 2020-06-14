@@ -49,17 +49,18 @@ public class DataServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
     messages = new LinkedList<String>();
-    Query query = new Query("messages").addSort("message",SortDirection.DESCENDING);
+    Query query = new Query("messages");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    System.out.println(query.toString());
 
     for(Entity entity: results.asIterable()){
 
-        String message = (String)entity.getProperty("message");
+        String message = (String)entity.getProperty("msg");
         toJson(message);
         System.out.println("am I in the loop?");
+        //this isnt printing out. Means we aren't entering loop
+        //means results is empty
 
     }
 
