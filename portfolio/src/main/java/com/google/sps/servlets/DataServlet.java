@@ -20,29 +20,57 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    List<String> messages = new LinkedList<String>();
+    List<String> messages;
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
       String message = getParameter(request,"text-input","");
       toJson(message);
-      response.setContentType("text/html");
-      response.getWriter().println("<h1>Thank you for contributing your message. Go back to the site to see it.</h1>");
+      Entity taskEntity = new Entity("messages");
+      taskEntity.setProperty("msg", message);
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(taskEntity);
+      response.sendRedirect("/index.html#message");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
+    messages = new LinkedList<String>();
+    Query query = new Query("messages").addSort("message",SortDirection.DESCENDING);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    System.out.println(query.toString());
+
+    for(Entity entity: results.asIterable()){
+
+        String message = (String)entity.getProperty("message");
+        toJson(message);
+        System.out.println("am I in the loop?");
+
+    }
+
+    System.out.println("I have exited the loop");
     //response.setContentType("text/html;");
     response.setContentType("application/json");
     //response.getWriter().println("<h1>Hello Michael Stone</h1>");
     response.getWriter().println(messages.toString());
+
+    
+
   }
 
 
