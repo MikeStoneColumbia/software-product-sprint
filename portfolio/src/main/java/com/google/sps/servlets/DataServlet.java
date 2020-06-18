@@ -31,7 +31,7 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    List<String> messages;
+    List<String> messages = new ArrayList<>();
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -73,13 +73,7 @@ public class DataServlet extends HttpServlet {
 
 
   private void toJson(String message){
-
-      if(messages.isEmpty())
-        messages.add("{ \"msg\": \""+message+"\"}");
-    
-      else
-        messages.add("{ \"msg\": \""+message+"\"}");
-      
+        messages.add("{ \"msg\": \""+message+"\"}");    
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
