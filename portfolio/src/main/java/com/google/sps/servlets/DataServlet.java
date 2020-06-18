@@ -73,13 +73,7 @@ public class DataServlet extends HttpServlet {
 
 
   private void toJson(String message){
-
-      if(messages.isEmpty())
-        messages.add("{ \"msg\": \""+message+"\"}");
-    
-      else
-        messages.add("{ \"msg\": \""+message+"\"}");
-      
+        messages.add("{ \"msg\": \""+message+"\"}");    
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
