@@ -12,6 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+async function translate(){
+
+    const params = new URLSearchParams();
+    params.append("languageCode","es");
+    params.append("message",document.getElementById("textBox").value);
+    console.log(document.getElementById("textBox").value)
+    await fetch('/data', {
+          method: 'POST',
+          body: params
+        })
+
+    location.reload()
+    return false; //Stack-overflow said needed to return false after being called by onclick..
+  
+}
+
+
 
 function displayMessages(){
   
@@ -23,7 +40,7 @@ function displayMessages(){
     data.forEach(dataum => {
       
       document.getElementById("userMessages").innerHTML += `<p><strong> A user commented:</strong> ${dataum.msg} </p>`
-      console.log(`Completed displaying: ${dataum.msg}`)
+      //console.log(`Completed displaying: ${dataum.msg}`)
     })
     
   })

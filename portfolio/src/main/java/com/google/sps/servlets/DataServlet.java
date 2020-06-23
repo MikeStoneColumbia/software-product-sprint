@@ -26,6 +26,9 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -37,6 +40,20 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
       String message = getParameter(request,"text-input","");
+      message = getParameter(request, "message",message);
+      String languageCode = getParameter(request,"languageCode","en");
+
+      System.out.println(languageCode);
+
+      if(languageCode.equals("es")){
+       
+       Translate translate = TranslateOptions.getDefaultInstance().getService();
+       Translation translation =
+            translate.translate(message, Translate.TranslateOption.targetLanguage(languageCode));
+        
+        message = translation.getTranslatedText();
+     
+      }
       toJson(message);
       Entity taskEntity = new Entity("messages");
       taskEntity.setProperty("msg", message);
@@ -52,22 +69,21 @@ public class DataServlet extends HttpServlet {
     Query query = new Query("messages");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-
+    
+    // String languageCode = getParameter(request,"languageCode","en");
+    // System.out.println("Current language is : " +  languageCode);
 
     for(Entity entity: results.asIterable()){
 
         String message = (String)entity.getProperty("msg");
         toJson(message);
      
-
     }
 
     //response.setContentType("text/html;");
     response.setContentType("application/json");
     //response.getWriter().println("<h1>Hello Michael Stone</h1>");
     response.getWriter().println(messages.toString());
-
-    
 
   }
 
