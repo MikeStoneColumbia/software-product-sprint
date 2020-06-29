@@ -23,8 +23,12 @@ public final class FindMeetingQuery {
   
        Collection<TimeRange> results = new HashSet<TimeRange>();
 
+        if(request.getDuration() > TimeRange.WHOLE_DAY.duration())
+            return Arrays.asList();
+
         if(request.getAttendees().size() == 0){ // if there are no attendees
-            results = Arrays.asList(TimeRange.WHOLE_DAY);
+
+            return Arrays.asList(TimeRange.WHOLE_DAY);
         }
         
         return results;
