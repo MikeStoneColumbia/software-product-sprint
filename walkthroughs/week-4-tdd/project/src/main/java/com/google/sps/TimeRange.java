@@ -168,7 +168,7 @@ public final class TimeRange {
     return (hours * 60) + minutes;
   }
 
-  /**
+  /*
    * Creates a {@code TimeRange} from {@code start} to {@code end}. Whether or not {@code end} is
    * included in the range will depend on {@code inclusive}. If {@code inclusive} is {@code true},
    * then @{code end} will be in the range.
