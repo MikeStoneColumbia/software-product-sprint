@@ -92,7 +92,7 @@ public final class FindMeetingQueryTest {
             TimeRange.fromStartEnd(TIME_0900AM, TimeRange.END_OF_DAY, true));
 
     Assert.assertEquals(expected, actual);
-  }
+  } 
 
   @Test
   public void everyAttendeeIsConsidered() {
