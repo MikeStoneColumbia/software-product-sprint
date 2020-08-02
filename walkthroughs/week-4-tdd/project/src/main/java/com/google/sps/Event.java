@@ -99,5 +99,6 @@ public final class Event {
       return this.title + " starts @: " + this.when.start() + ". Attendees: " + this.attendees.toString();
 
   }
+  
 
 }

@@ -21,7 +21,8 @@ public final class FindMeetingQuery {
     //throw new UnsupportedOperationException("TODO: Implement this method.");
   
         List<TimeRange> results = new LinkedList<>();
-        ArrayList<Event> exisitingEvents = new ArrayList<>();
+        // ArrayList<Event> exisitingEvents = new ArrayList<>();
+        ArrayList<TimeRange> exisitingEvents = new ArrayList<>();
 
         if(request.getDuration() > TimeRange.WHOLE_DAY.duration()) // can't schedule beyond 24 hours
             return Arrays.asList();
@@ -31,12 +32,13 @@ public final class FindMeetingQuery {
             return Arrays.asList(TimeRange.WHOLE_DAY);
         }
  
-        events.forEach(e -> exisitingEvents.add((Event) e ));
+        //events.forEach(e -> exisitingEvents.add((Event) e ));
+        events.forEach(e -> exisitingEvents.add((TimeRange) e.getWhen() ));
       //First we see if there is an overlap at the beg of the day.
       //there is then we start after the overlap.
       //there is no overlap start at the beginning.
         
-        TimeRange eventTimeRange = exisitingEvents.get(0).getWhen();
+        TimeRange eventTimeRange = exisitingEvents.get(0);
 
         //checking to see if there is any overlap in the beginning of the day
         if(!eventTimeRange.overlaps(TimeRange.fromStartEnd(TimeRange.WHOLE_DAY.start(),eventTimeRange.start(),false))){
@@ -45,12 +47,10 @@ public final class FindMeetingQuery {
 
         }
 
-       // results.add(TimeRange.fromStartEnd(eventTimeRange.end(),TimeRange.WHOLE_DAY.end(),false));
-
         for(int i = 0; i < exisitingEvents.size()-1; i++){
 
-            TimeRange event1 = exisitingEvents.get(i).getWhen();
-            TimeRange event2 = exisitingEvents.get(i+1).getWhen();
+            TimeRange event1 = exisitingEvents.get(i);
+            TimeRange event2 = exisitingEvents.get(i+1);
 
             if(!event1.overlaps(event2)){ // check to see if 2 events overlap.
 
@@ -61,10 +61,12 @@ public final class FindMeetingQuery {
 
         }
 
-        eventTimeRange = exisitingEvents.get(exisitingEvents.size()-1).getWhen();
+        eventTimeRange = exisitingEvents.get(exisitingEvents.size()-1);
 
         if(1440 - eventTimeRange.end() >= request.getDuration()) // check for time after the final event
             results.add(TimeRange.fromStartEnd(eventTimeRange.end(),1440,false));
+
+        System.out.println(exisitingEvents.toString()); 
 
         return results;
   
