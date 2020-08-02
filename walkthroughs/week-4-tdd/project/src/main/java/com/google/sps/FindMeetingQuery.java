@@ -32,13 +32,14 @@ public final class FindMeetingQuery {
             return Arrays.asList(TimeRange.WHOLE_DAY);
         }
  
-        //events.forEach(e -> exisitingEvents.add((Event) e ));
         events.forEach(e -> exisitingEvents.add((TimeRange) e.getWhen() ));
-      //First we see if there is an overlap at the beg of the day.
-      //there is then we start after the overlap.
-      //there is no overlap start at the beginning.
+        Collections.sort(exisitingEvents, TimeRange.ORDER_BY_START); // Idea is to figure out the lower bound
+
+       //First we see if there is an overlap at the beg of the day.
+       //there is then we start after the overlap.
+       //there is no overlap start at the beginning.
         
-        TimeRange eventTimeRange = exisitingEvents.get(0);
+       TimeRange eventTimeRange = exisitingEvents.get(0);
 
         //checking to see if there is any overlap in the beginning of the day
         if(!eventTimeRange.overlaps(TimeRange.fromStartEnd(TimeRange.WHOLE_DAY.start(),eventTimeRange.start(),false))){
@@ -46,6 +47,8 @@ public final class FindMeetingQuery {
             results.add(TimeRange.fromStartEnd(TimeRange.WHOLE_DAY.start(),eventTimeRange.start(),false));
 
         }
+
+        //Collections.sort(exisitingEvents, TimeRange.ORDER_BY_END);
 
         for(int i = 0; i < exisitingEvents.size()-1; i++){
 
@@ -57,16 +60,23 @@ public final class FindMeetingQuery {
                 if(event2.end() - event1.start() >= request.getDuration()) // check to see if there is enough time inbetween meetings
                     results.add(TimeRange.fromStartEnd(event1.end(),event2.start(),false));
 
+            }else{ // there is an overlap
+
+                
+
             }
 
         }
 
+        Collections.sort(exisitingEvents, TimeRange.ORDER_BY_END);
         eventTimeRange = exisitingEvents.get(exisitingEvents.size()-1);
+        System.out.println(exisitingEvents.toString()); 
 
         if(1440 - eventTimeRange.end() >= request.getDuration()) // check for time after the final event
             results.add(TimeRange.fromStartEnd(eventTimeRange.end(),1440,false));
 
-        System.out.println(exisitingEvents.toString()); 
+        
+       
 
         return results;
   
