@@ -93,4 +93,11 @@ public final class Event {
     // interface documentation, equals will check for set-equality across all set implementations.
     return a.title.equals(b.title) && a.when.equals(b.when) && a.attendees.equals(b.attendees);
   }
+
+  public String toString(){
+
+      return this.title + " starts @: " + this.when.start() + ". Attendees: " + this.attendees.toString();
+
+  }
+
 }
