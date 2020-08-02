@@ -21,17 +21,33 @@ public final class FindMeetingQuery {
     //throw new UnsupportedOperationException("TODO: Implement this method.");
   
         List<TimeRange> results = new LinkedList<>();
-        // ArrayList<Event> exisitingEvents = new ArrayList<>();
         ArrayList<TimeRange> exisitingEvents = new ArrayList<>();
+        int attendees = 0;
+
 
         if(request.getDuration() > TimeRange.WHOLE_DAY.duration()) // can't schedule beyond 24 hours
             return Arrays.asList();
 
-        if(request.getAttendees().size() == 0){ // if there are no attendees
+        if(request.getAttendees().size() == 0 || events.size() == 0){ // if there are no attendees
 
             return Arrays.asList(TimeRange.WHOLE_DAY);
         }
- 
+
+        for(String name : request.getAttendees()){
+            for(Event e: events){
+
+                if(e.getAttendees().contains(name))
+                    attendees++;
+
+            }
+
+            if(attendees == 0)
+                return Arrays.asList(TimeRange.WHOLE_DAY);
+            
+            attendees = 0;
+
+        }
+
         events.forEach(e -> exisitingEvents.add((TimeRange) e.getWhen() ));
         Collections.sort(exisitingEvents, TimeRange.ORDER_BY_START); // Idea is to figure out the lower bound
 
@@ -57,12 +73,11 @@ public final class FindMeetingQuery {
 
             if(!event1.overlaps(event2)){ // check to see if 2 events overlap.
 
-                if(event2.end() - event1.start() >= request.getDuration()) // check to see if there is enough time inbetween meetings
+                System.out.println(event1.end() - event2.start());
+
+                if(event2.start() - event1.end() >= request.getDuration()){ // check to see if there is enough time inbetween meetings
                     results.add(TimeRange.fromStartEnd(event1.end(),event2.start(),false));
-
-            }else{ // there is an overlap
-
-                
+                }
 
             }
 
